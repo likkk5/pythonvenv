@@ -1,0 +1,22 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Dashboard</title>
+</head>
+<body>
+    <h1>Welcome, {{ user.username }}</h1>
+    <h2>Purchases:</h2>
+    <ul>
+        {% for purchase in purchases %}
+            <li>{{ purchase }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Promocodes:</h2>
+    <ul>
+        {% for promo in promos %}
+            <li>{{ promo }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

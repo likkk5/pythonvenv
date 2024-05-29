@@ -1,0 +1,16 @@
+{% extends 'baseview.html' %}
+
+{% block content %}
+<div class="news-container">
+    <h1>Новости</h1>
+    
+    {% for actu in news %}
+    <div class="new">
+        <h2>{{ actu.title }}</h2>
+        <img src="{{ actu.photo.url }}" alt="{{ actu.short_description }}" width="150">
+        <p>Кратко: {{ actu.short_description }}</p>
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock %}

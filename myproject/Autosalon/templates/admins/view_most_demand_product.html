@@ -1,0 +1,23 @@
+{% extends 'baseview.html' %}
+
+{% block content %}
+<form method="GET" action="{% url 'view_most_demand_product' %}">
+    <button type="submit" name="order" value="desc">Sort by Most Sales</button>
+    <button type="submit" name="order" value="asc">Sort by Least Sales</button>
+</form>
+<h2>Products Sales List</h2>
+{% if order %}
+    {% if total_sales_by_product %}
+        <p>Sales data is available.</p>
+        <ul>
+            {% for product, total_sales in total_sales_by_product.items %}
+                <li>{{ product }}: {{ total_sales }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No sales data available</p>
+    {% endif %}
+{% else %}
+    <p>Please select a sort order to view the sales data.</p>
+{% endif %}
+{% endblock %}

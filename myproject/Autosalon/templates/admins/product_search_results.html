@@ -1,0 +1,19 @@
+{%extends 'baseview.html' %}
+
+{% block content %}
+    <h2>Search Results for "{{ query }}"</h2>
+    <ul>
+        {% for product in products %}
+            <h3>{{ product.name }}</h3>
+            {% comment %} <p><strong>Code:</strong> {{ product.code }}</p> {% endcomment %}
+            <p><strong>Type:</strong> {{ product.product_type }}</p>
+            <p><strong>Description:</strong> {{ product.characteristics }}</p>
+            {% comment %} <p><strong>Instruction:</strong> {{ product.instruction }}</p> {% endcomment %}
+            <p><strong>Price:</strong> {{ product.price }}</p>
+            <img src="{{ product.photo.url }}" alt="{{ product.name }}" style="max-width: 200px; max-height: 200px;">
+        {% empty %}
+            <li>No products found.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+

@@ -1,0 +1,10 @@
+{% extends 'baseview.html' %}
+
+{% block content %}
+    <h1>Sales Trend and Forecast</h1>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% else %}
+        <img src="data:image/png;base64,{{ chart }}" alt="Sales Trend and Forecast">
+    {% endif %}
+{% endblock %}

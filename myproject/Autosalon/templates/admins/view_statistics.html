@@ -1,0 +1,31 @@
+{% extends 'baseview.html' %}
+
+{% block content %}
+  <h2>Statistics</h2>
+  <p>Среднее значение продаж: {{ statistics.average_sales }}</p>
+  <p>Медиана продаж: {{ statistics.median_sales }}</p>
+  {% comment %} <p>Мода продаж: {{ statistics.mode_sales }}</p> {% endcomment %}
+  {% comment %} <h1>Статистика возраста клиентов</h1>
+  <p>Средний возраст клиентов: {{ age_statistics.average_age }}</p>
+  <p>Медиана возраста клиентов: {{ age_statistics.median_age }}</p> {% endcomment %}
+
+  <h1>Наиболее популярный тип товаров</h1>
+  {% if popular %}
+      <p>Наиболее популярная категория товаров: {{ popular }}</p>
+      <h2>Клиенты, купившие этот товар:</h2>
+      <ul>
+        {% for product_type, customers in popular_products_with_customers.items %}
+            {% if product_type == popular %}
+                {% for username, purchase_count in customers.items %}
+                    <li>{{ username }} - {{ purchase_count }} раз(а)</li> 
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+      </ul>
+  {% else %}
+      <p>Нет данных о продажах</p>
+  {% endif %}
+
+  <h1>Распределение продаж по типам товаров</h1>
+  <img src="{{ chart_image }}" alt="Sales Distribution Chart">
+{% endblock %}

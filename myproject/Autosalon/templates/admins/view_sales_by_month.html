@@ -1,0 +1,18 @@
+{% extends 'baseview.html' %}
+
+{% block content %}
+<h2>Monthly Sales Volume by Product Type</h2>
+
+{% if sales_by_month %}
+    {% for month, sales in sales_by_month.items %}
+        <h3>{{ month|date:"F Y" }}</h3>
+        <ul>
+            {% for product_type, monthly_revenue in sales.items %}
+                <li>{{ product_type }}: {{ monthly_revenue }} рублей</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+{% else %}
+    <p>No sales data available.</p>
+{% endif %}
+{% endblock %}

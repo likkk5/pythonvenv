@@ -1,0 +1,20 @@
+<html>
+<head>
+    <title>Product Popularity</title>
+</head>
+<body>
+    <h1>Product Popularity</h1>
+    <h2>Most Popular Products</h2>
+    <ul>
+        {% for product in popular_products %}
+        <li>{{ product.name }} - {{ product.total_sales }} sales</li>
+        {% endfor %}
+    </ul>
+    <h2>Least Popular Products</h2>
+    <ul>
+        {% for product in unpopular_products %}
+        <li>{{ product.name }} - {{ product.total_sales }} sales</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

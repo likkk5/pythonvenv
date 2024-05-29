@@ -1,0 +1,20 @@
+{% extends 'baseview.html' %}
+
+{% block content %}
+<div class="vacancies-container">
+    <h1>Вакансии</h1>
+    <p>Здесь будет отображаться информация об актуальных вакансиях.</p>
+    
+    {% for vacancy in vacancies %}
+    <div class="vacancy">
+        <h2>{{ vacancy.title }}</h2>
+        <p>Описание: {{ vacancy.description }}</p>
+        <p>Зарплата: {{ vacancy.salary }}</p>
+        <p>Дата: {{ vacancy.date_posted }} </p>
+        <p>Требования: {{ vacancy.requirements }}</p>
+        <p>График: {{ vacancy.job_type }} </p>
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock %}

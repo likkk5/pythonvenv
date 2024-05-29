@@ -1,0 +1,16 @@
+{% extends 'baseview.html' %}
+
+{% block content %}
+  <h2>Our manufacturers</h2>
+  <ul>
+    {% for manufacturer in manufacturers %}
+      <li>
+        <h3>{{ manufacturer.name }}</h3>
+        <p><strong>Address:</strong> {{ manufacturer.address }}</p>
+        <p><strong>Phone:</strong> {{ manufacturer.phone }}</p>
+        <p><strong>Email:</strong> {{ manufacturer.email }}</p>
+        <a href="{% url 'edit_manufacturer' manufacturer.id %}" class="btn btn-primary">Edit</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

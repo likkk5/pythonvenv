@@ -1,0 +1,7 @@
+{% block content %}
+  <h2>Sign up for a free account</h2>
+  <p class="lead">Select below the type of account you want to create</p>
+  <a href="{% url 'customer_signup' %}" class="btn btn-student btn-lg" role="button">I'm a customer</a>
+  <a href="{% url 'employee_signup' %}" class="btn btn-employee btn-lg" role="button">I'm an employee</a>
+  <a href="{% url 'admin_signup' %}" class="btn btn-admin btn-lg" role="button">I'm an admin</a>
+{% endblock %}

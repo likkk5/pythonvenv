@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard</title>
+</head>
+<body>
+    <h1>Welcome, {{ user.username }}</h1>
+    <h2>Orders:</h2>
+    <ul>
+        {% for order in orders %}
+            <li>{{ order }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Sales:</h2>
+    <ul>
+        {% for sale in sales %}
+            <li>{{ sale }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Customers:</h2>
+    <ul>
+        {% for customer in customers %}
+            <li>{{ customer }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

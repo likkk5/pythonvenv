@@ -1,0 +1,13 @@
+{% extends 'baseview.html' %}
+
+{% block content %}
+  <h2>Sales List</h2>
+  <p>Суммарная выручка: {{ total_revenue }}</p>
+  
+  <h3>Details:</h3>
+  <ul>
+    {% for sale in sales_data %}
+      <li>{{ sale.product }}: Quantity - {{ sale.quantity }}, Price - {{ sale.price }}, Total - {{ sale.total }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

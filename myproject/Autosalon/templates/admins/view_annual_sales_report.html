@@ -1,0 +1,15 @@
+{% extends 'baseview.html' %}
+
+{% block content %}
+<h2>Annual Sales Report</h2>
+
+{% if sales_by_year %}
+    <ul>
+        {% for year, annual_revenue in sales_by_year.items %}
+            <li>{{ year|date:"Y" }}: {{ annual_revenue }} рублей</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No sales data available.</p>
+{% endif %}
+{% endblock %}

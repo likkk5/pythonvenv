@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>Публичная часть сайта</title>
+</head>
+<body>
+    <h1>Публичная часть сайта</h1>
+    <h2>Категории оказываемых услуг</h2>
+    <form method="get">
+        {{ form.as_p }}
+        <button type="submit">Фильтровать</button>
+    </form>
+    <h2>Список товаров</h2>
+    <ul>
+        {% for product in products %}
+            <li>{{ product.name }} - {{ product.price }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Промокоды и купоны</h2>
+    <!-- Добавьте информацию о промокодах и купонах -->
+</body>
+</html>

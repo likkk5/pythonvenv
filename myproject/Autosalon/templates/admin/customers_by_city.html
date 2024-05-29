@@ -1,0 +1,20 @@
+<html>
+<head>
+    <title>Customers by City</title>
+</head>
+<body>
+    <h1>Customers by City</h1>
+    <table>
+        <tr>
+            <th>City</th>
+            <th>Total Customers</th>
+        </tr>
+        {% for customer in customers %}
+        <tr>
+            <td>{{ customer.city }}</td>
+            <td>{{ customer.total }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

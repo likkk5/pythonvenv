@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>Monthly Sales Report</title>
+</head>
+<body>
+    <h1>Monthly Sales Report</h1>
+    <table>
+        <tr>
+            <th>Month</th>
+            <th>Product Type</th>
+            <th>Total Sales</th>
+        </tr>
+        {% for sale in sales %}
+        <tr>
+            <td>{{ sale.month }}</td>
+            <td>{{ sale.product__product_type__name }}</td>
+            <td>{{ sale.total_sales }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

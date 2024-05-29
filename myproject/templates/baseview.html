@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>My Autosalon Website</title>
+    </head>
+    <body>
+        <div class="col-6 text-right">
+          <nav>
+            <ul>
+                <li><a href="{% url 'contacts' %}">Контакты</a></li>
+            </ul>
+            <ul>
+                <li><a href="{% url 'about' %}">О компании</a></li>
+            </ul>
+            <ul>
+                <li><a href="{% url 'policy' %}">Политика конфиденциальности</a></li>
+            </ul>
+            <ul>
+                <li><a href="{% url 'vacancies' %}">Вакансии</a></li>
+            </ul>
+            {% comment %} <ul>
+                <li><a href="{% url 'index' %}">Главная</a></li>
+            </ul> {% endcomment %}
+            <ul>
+                <li><a href="{% url 'questions' %}">Вопросы и ответы</a></li>
+            </ul>
+            <ul>
+                <li><a href="{% url 'promos' %}">Промокоды и купоны</a></li>
+            </ul>
+            <ul>
+                <li><a href="{% url 'news' %}">Новости</a></li>
+            </ul>
+            <ul>
+                <li><a href="{% url 'feedbacks' %}">Отзывы</a></li>
+            </ul>
+
+        </nav>
+        
+          <h1>Welcome! <span class="icon-emo-happy"></span></h1>
+          </div>
+          {% if user.is_authenticated %}
+            <p class="pt-3">Logged in as <strong>{{ user.username }}</strong>. 
+                {% comment %} <a href="{% url 'logout' %}">Log out</a>.</p> {% endcomment %}
+                <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit">Logout</button>
+                </form>    
+            {% if user.is_admin %}
+                <a href="{% url 'admin_home' %}" class="btn btn-primary" role="button">Admin Home</a>
+            {% elif user.is_customer %}
+                <a href="{% url 'customer_home' %}" class="btn btn-primary" role="button">Customer Home</a>
+            {% elif user.is_employee %}
+                <a href="{% url 'employee_home' %}" class="btn btn-primary" role="button">Employee Home</a>
+            {% endif %}
+          {% else %}
+            <a href="{% url 'login' %}" class="btn btn-light" role="button">Log in</a>
+            <a href="{% url 'signup' %}" class="btn btn-primary" role="button">Sign up</a>
+          {% endif %}
+
+          <div>
+            {% block content %}
+            {% endblock %}
+        </div>
+
+    </body>
+</html>

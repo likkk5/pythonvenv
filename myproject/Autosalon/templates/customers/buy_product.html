@@ -1,0 +1,39 @@
+{% extends 'baseview.html' %}
+
+{% block content %}
+<div class="container">
+  <h1>Купить продукт "{{ product.name }}"</h1>
+  <form method="post">
+      {% csrf_token %}
+      <div class="form-group">
+          <label for="id_quantity">Количество:</label>
+          <input type="number" name="quantity" id="id_quantity" value="1" min="1">
+      </div>
+      <div class="form-group">
+          <label for="id_promo_code">Промокод:</label>
+          <input type="text" name="promo_code" id="id_promo_code">
+      </div>
+      <button type="submit" class="btn btn-primary">Купить</button>
+  </form>
+
+  <h2>Доступные промокоды ({{ available_promos|length }})</h2>
+<ul>
+    {% if available_promos %}
+        {% for promo in available_promos %}
+            <li>{{ promo.code }} - {{ promo.description }}-{{ promo.discount_value }}</li>
+        {% endfor %}
+    {% else %}
+        <li>Нет доступных промокодов</li>
+    {% endif %}
+</ul>
+</div>
+{% comment %} 
+{% block content %}
+  <h2>Buy</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Buy</button>
+  </form> {% endcomment %}
+
+{% endblock %}

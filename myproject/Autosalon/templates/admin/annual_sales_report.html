@@ -1,0 +1,20 @@
+<html>
+<head>
+    <title>Annual Sales Report</title>
+</head>
+<body>
+    <h1>Annual Sales Report</h1>
+    <table>
+        <tr>
+            <th>Year</th>
+            <th>Total Sales</th>
+        </tr>
+        {% for sale in sales %}
+        <tr>
+            <td>{{ sale.year }}</td>
+            <td>{{ sale.total_sales }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

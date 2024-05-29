@@ -1,0 +1,29 @@
+{%extends 'baseview.html' %}
+
+{% block content %}
+  <h2>Welcome to admin home page! <span class="icon-emo-happy"></span></h2>
+  <h4>Current time: {{date|date:"d/m/Y"}} ({{timezone}})</h4>
+  <div class="calendar">
+    {{ calendar|safe}}
+  </div>
+    <div>
+      <a href="{% url 'add_product' %}" class="btn btn-primary">Add Product</a><br>
+      <a href="{% url 'view_products' %}" class="btn btn-primary">Check all products</a><br>
+      <a href="{% url 'add_manufacturer' %}" class="btn btn-primary">Add manufacturer</a><br>
+      <a href="{% url 'view_manufacturers' %}" class="btn btn-primary">Check manufacturers</a><br>
+      <a href="{% url 'search_product' %}" class="btn btn-primary">Find product</a><br>
+      <a href="{% url 'view_most_demand_product' %}" class="btn btn-primary">View Products Sales List</a><br>
+      <a href="{% url 'view_sales' %}" class="btn btn-primary">View all sales</a><br>
+      <a href="{% url 'view_employees' %}" class="btn btn-primary">View employees</a><br>
+      <a href="{% url 'view_statistics' %}" class="btn btn-primary">View statistics</a><br>
+      <a href="{% url 'view_sales_by_month' %}" class="btn btn-primary">View sales by month</a><br>
+      <a href="{% url 'view_annual_sales_report' %}" class="btn btn-primary">Annual sales</a><br>
+      {% comment %} <a href="{% url 'sales_trend_forecast' %}" class="btn btn-primary">Trend and forecast</a><br> {% endcomment %}
+      <form method="GET" action="{% url 'customers_by_city' %}">
+        <label for="city">Введите город:</label>
+        <input type="text" name="city" id="city">
+        <button type="submit">Получить заказчиков</button>
+    </form>
+    </div>
+
+{% endblock %}

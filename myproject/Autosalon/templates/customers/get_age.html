@@ -1,0 +1,10 @@
+{% extends 'baseview.html' %}
+
+{% block content %}
+{% if age and name %}
+<p>Name: {{ name }}</p>
+<p>Age: {{ age }}</p>
+{% else %}
+<p>Could not retrieve age information.</p>
+{% endif %}
+{% endblock %}

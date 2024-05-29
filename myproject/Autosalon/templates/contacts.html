@@ -1,0 +1,22 @@
+{% extends 'baseview.html' %}
+
+{% block content %}
+<div class="contacts-container">
+    <h1>Контакты</h1>
+    <p>Здесь будет отображаться информация о сотрудниках, включая их фото, описание выполняемых работ, контактные данные и другую информацию.</p>
+    
+    {% for contact in employees %}
+    <div class="contact">
+        <h2>{{ contact.user.username }}</h2>
+        {% if contact.photo %}
+        <img src="{{ contact.photo.url }}" alt="{{ contact.user.username }}" width="150">
+        {% else %}
+            <img src="C:\Users\lishy\pythonvenv\myproject\media\default_photo.png" alt="No photo" width="150">
+        {% endif %}
+        <p>Телефон: {{ contact.phone_number }}</p>
+    </div>
+    {% endfor %}
+    {% comment %} <a href="{% url 'sort_employees' %}" class="btn btn-primary">Sort employees by name</a><br> {% endcomment %}
+
+</div>
+{% endblock %}
