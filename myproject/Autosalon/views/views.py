@@ -27,7 +27,11 @@ def vacancies(request):
     return render(request,'vacancies.html',{'vacancies':vacancies})
 
 def index(request):
-    return render(request, 'index.html')
+    latest_news = News.objects.latest('id')  # Assuming 'id' is the primary key and higher id means newer news
+    context = {
+        'latest_news': latest_news,
+    }
+    return render(request, 'index.html', context)
 
 def questions(request):
     questions=Question.objects.all()

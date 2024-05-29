@@ -3,6 +3,10 @@
 {% block content %}
 <div class="index-container">
     <h1>Главная</h1>
-
+    <div class="latest-news">
+        <h2>{{ latest_news.title }}</h2>
+        <img src="{{ latest_news.photo.url }}" alt="{{ latest_news.short_description }}" width="150">
+        <p>Кратко: {{ latest_news.short_description }}</p>
+    </div>
 </div>
 {% endblock %}
