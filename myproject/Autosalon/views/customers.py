@@ -177,18 +177,6 @@ def edit_feedback(request, feedback_id):
     
     return render(request, 'edit_feedback.html', {'form': form})
 
-def customers_by_city(request):
-    customers = Customer.objects.all().select_related('user').order_by('city')
-    grouped_customers = {}
-
-    for customer in customers:
-        city = customer.city
-        if city not in grouped_customers:
-            grouped_customers[city] = []
-        grouped_customers[city].append(customer)
-
-    return render(request, 'customers_by_city.html', {'grouped_customers': grouped_customers})
-
 def get_age(request):
     if request.method == 'GET' and 'name' in request.GET:
         name = request.GET['name']

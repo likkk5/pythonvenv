@@ -239,6 +239,23 @@ def filter_products(request):
 
     return render(request, 'view_products.html', {'products': products})
 
+from ..forms import CityForm
+
+def customers_by_city(request):
+    form = CityForm(request.POST or None)
+    grouped_customers = {}
+
+    if request.method == 'POST' and form.is_valid():
+        city = form.cleaned_data['city']
+        customers = Customer.objects.filter(city=city).select_related('user').order_by('city')
+        
+        if customers.exists():
+            grouped_customers[city] = customers
+        else:
+            grouped_customers[city] = []
+
+    return render(request, 'customers_by_city.html', {'grouped_customers': grouped_customers, 'form': form})
+
 # @login_required
 # def view_catalog(request):
 #     min_sales = request.GET.get('min_sales')

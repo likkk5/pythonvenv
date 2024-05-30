@@ -58,7 +58,7 @@ urlpatterns = [
     path('leave_feedback/',customers.leave_feedback,name='leave_feedback'),
     path('edit_feedback/<int:feedback_id>/', customers.edit_feedback, name='edit_feedback'),
     # path('get_age/',customers.get_age,name='get_age'),
-    path('customers_by_city/',customers.customers_by_city,name='customers_by_city'),
+    path('customers_by_city/',admins.customers_by_city,name='customers_by_city'),
 
     path('employee/home',employees.EmployeeHome,name='employee_home'),
     path('admin_home/statistics',admins.view_statistics,name='view_statistics'),

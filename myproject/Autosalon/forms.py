@@ -191,3 +191,6 @@ class FeedbackForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['note'].label = 'Rating'
+        
+class CityForm(forms.Form):
+    city = forms.CharField(max_length=100, label='City')        

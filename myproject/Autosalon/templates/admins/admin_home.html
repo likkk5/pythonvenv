@@ -18,12 +18,13 @@
       <a href="{% url 'view_statistics' %}" class="btn btn-primary">View statistics</a><br>
       <a href="{% url 'view_sales_by_month' %}" class="btn btn-primary">View sales by month</a><br>
       <a href="{% url 'view_annual_sales_report' %}" class="btn btn-primary">Annual sales</a><br>
+      <a href="{% url 'customers_by_city' %}" class="btn btn-primary">Customers by city</a><br>
       {% comment %} <a href="{% url 'sales_trend_forecast' %}" class="btn btn-primary">Trend and forecast</a><br> {% endcomment %}
-      <form method="GET" action="{% url 'customers_by_city' %}">
+      {% comment %} <form method="GET" action="{% url 'customers_by_city' %}">
         <label for="city">Введите город:</label>
         <input type="text" name="city" id="city">
         <button type="submit">Получить заказчиков</button>
-    </form>
+    </form> {% endcomment %}
     </div>
 
 {% endblock %}
