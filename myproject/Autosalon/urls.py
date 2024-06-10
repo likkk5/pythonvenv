@@ -34,10 +34,6 @@ urlpatterns = [
     path('filter_product',admins.filter_products,name='filter_products'),
     path('view_most_demand_product',admins.view_most_demand_product,name='view_most_demand_product'),
 
-    # path('add/department', admins.add_department, name='add_department'),
-    # path('departments/', admins.view_departments, name='view_departments'),
-    # path('departments/<int:department_id>/edit/', admins.edit_department, name='edit_department'),
-
     path('add_manufacturer/', admins.add_manufacturer, name='add_manufacturer'),
     path('manufacturers/', admins.view_manufacturers, name='view_manufacturers'),
     path('edit_manufacturer/<int:manufacturer_id>/edit/', admins.edit_manufacturer, name='edit_manufacturer'),

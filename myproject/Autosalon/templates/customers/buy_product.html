@@ -27,13 +27,5 @@
     {% endif %}
 </ul>
 </div>
-{% comment %} 
-{% block content %}
-  <h2>Buy</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Buy</button>
-  </form> {% endcomment %}
 
 {% endblock %}
